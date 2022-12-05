@@ -17,27 +17,18 @@ export default function PerguntaVirada(props){
         if(!estaNaLista){
             setFeito([...feito, answer]);
             setContador(contador + 1);
-            setCor(true);
         }
     }
 
-    function quaseAcertou(answer){
-        setCor("y");
-    }
-
-    function errou(answer){
-        setCor("r");
-    }
-    
     return(
         <>
             {cards.map((c) =>
-            <StyledPerguntaVirada key={c.answer} mostrar={props.mostrar} colorido={cor}>
+            <StyledPerguntaVirada key={c.answer} mostrar={props.mostrar}>
                 <p>{c.answer}</p>
                 <div>
                     <img onClick={() => acertou(c.answer)} src={certo} />
-                    <img onClick={() =>  quaseAcertou(c.answer)} src={quase} />
-                    <img onClick={() => errou(c.answer)} src={errado} />
+                    <img src={quase} />
+                    <img src={errado} />
                 </div>
             </StyledPerguntaVirada>)}
         </>

@@ -2,12 +2,13 @@ import styled from "styled-components";
 import Logo from "./Logo";
 import ContainerPerguntas from "./ContainerPerguntas";
 
-export default function Conteudo(){
+export default function Conteudo(props){
+    const {setContador, contador} = props;
     return(
         <StyledConteudo>
 
             <Logo />
-            <ContainerPerguntas />
+            <ContainerPerguntas setContador={setContador} contador={contador}/>
 
         </StyledConteudo>
     );

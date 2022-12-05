@@ -1,14 +1,16 @@
+import {useState} from "react";
 import styled from "styled-components";
 import Conteudo from "./Conteudo";
 import Concluidos from "./Concluidos";
 
 export default function ContainerGlobal(){
+    const [contador, setContador] = useState(0);
     return(
         <StyledContainerGlobal>
 
             <StyledMain>
-                <Conteudo />
-                <Concluidos />
+                <Conteudo setContador={setContador} contador={contador}/>
+                <Concluidos contador={contador}/>
             </StyledMain>
 
         </StyledContainerGlobal>

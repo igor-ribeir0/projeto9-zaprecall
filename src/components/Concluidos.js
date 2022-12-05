@@ -1,9 +1,10 @@
 import styled from "styled-components";
 
-export default function Concluidos(){
+export default function Concluidos(props){
+    const {contador} = props
     return(
         <StyledContainerConcluidos>
-            <span>0/8 CONCLUÍDOS</span>
+            <span>{contador}/8 CONCLUÍDOS</span>
         </StyledContainerConcluidos>
     );
 }

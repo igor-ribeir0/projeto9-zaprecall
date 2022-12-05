@@ -1,24 +1,24 @@
 import styled from "styled-components";
-import play from "../assets/img/seta_play.png";
 import cards from "../cards";
+import virar from "../assets/img/seta_virar.png";
 
-export default function DivPergunta(){
+export default function PerguntaAberta(props){
+    const {virarPergunta} = props;
     return(
         <>
-            {cards.map((c) =>
-            <StyledDivPergunta>
-                <p>Pergunta {c.number}</p>
-                <img src={play} />
-            </StyledDivPergunta>)}
+        {cards.map((c) =>
+        <StyledPerguntaAberta key={c.question} mostrar={props.ver}>
+            <p>{c.question}</p>
+            <img onClick={() => virarPergunta(c.number)} src={virar} />
+        </StyledPerguntaAberta>)}
         </>
-
     );
 }
 
-const StyledDivPergunta = styled.div`
+const StyledPerguntaAberta = styled.div`
     width: 300px;
     height: 65px;
-    display: flex;
+    display: ${props => props.mostrar? "flex" : "none"};
     justify-content: space-between;
     align-items: center;
     background-color: white;
